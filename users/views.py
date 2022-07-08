@@ -17,5 +17,3 @@ class userLogin(LoginView):
   template_name = 'login.html'
   form_class = UserLoginForm
   success_url = '/'
-
-
