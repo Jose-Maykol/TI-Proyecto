@@ -7,5 +7,6 @@ from servicios.views import(
 
 urlpatterns = [
     path('listar/', listServicios, name= 'lista_Servicios'),
-    path('<int:myID>/', DetallesServicio, name = 'Detalles_Servicio')
+    path('<int:myID>/', DetallesServicio, name = 'Detalles_Servicio'),
+    path('agregar/', generarServicio, name = 'Creacion_Servicio'),
 ]
