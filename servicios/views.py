@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Servicios
-
+frim .forms import ServiceForm
 # Create your views here.
 def listServicios(request):
     context = {
@@ -13,4 +13,15 @@ def DetallesServicio(request,myID):
     context = {
         'objecto':obj
    }
-    return render(request,'it_service_detail.html',context)
+    return render(request,'it_service_detail.html', context)
+
+def generarServicio(request):
+    form = ServiceForm(request.POST or None)
+    if form.is_valid():
+      form.save()
+      form = ServiceForm()
+        
+    context = {
+        'form' = form
+    }
+    return render(request, 'formularioServicio.html', context)
