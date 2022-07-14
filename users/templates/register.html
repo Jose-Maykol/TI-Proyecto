@@ -1,2 +1,17 @@
-{% csrf_token %}
-{{form.as_p}}
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container d-flex flex-column align-items-center">
+  <h1 class="mb-4 text-capitalize font-weight-bold">Registrate</h2>
+  <form method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{form.as_p}}                         
+    <div class="text-center pt-2 pb-3">
+      <p class="text-dark mb-0">Ya tienes una cuenta? <a href="{% url 'login_user' %}" class="text-primary ms-1">Ingresa</a></p>
+    </div>
+    <input class="w-100 btn btn-primary" type="submit" value="Registrarse">
+  </form>
+</div>
+
+{% endblock content %}

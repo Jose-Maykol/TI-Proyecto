@@ -21,10 +21,17 @@ class UserForm(UserCreationForm):
 
     super().__init__(*args, **kwargs)
 
-    """ 
-    Para modificar la clase de los fields de formulario
-    self.fields['email'].widget.attrs.update({'class': '' , 'placeholder' : ''}) 
-    """
+    
+    self.fields['username'].widget.attrs.update({'class': 'form-control ms-0 w-100' , 'placeholder' : 'Nombre de usuario'})
+    self.fields['email'].widget.attrs.update({'class': 'form-control ms-0 w-100' , 'placeholder' : 'Email'}) 
+    self.fields['password1'].widget.attrs.update({'class': 'form-control ms-0 w-100' , 'placeholder' : 'Contraseña'})
+    self.fields['password2'].widget.attrs.update({'class': 'form-control ms-0 w-100' , 'placeholder' : 'Repite contraseña'})  
+   
+    for fieldname in ['username', 'password1', 'password2' , 'email']:
+      self.fields[fieldname].label = ''
+
+    for fieldname in ['username', 'password1', 'password2', 'email']:
+      self.fields[fieldname].help_text = None
   
   def save(self, commit:True):
 
@@ -41,3 +48,6 @@ class UserLoginForm(AuthenticationForm):
     super(UserLoginForm, self).__init__(*args, **kwargs)
     self.fields['password'].label = ''
     self.fields['username'].label = ''
+
+    self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder' : 'Nombre de usuario'})
+    self.fields['password'].widget.attrs.update({'class': 'form-control' , 'placeholder' : 'Contraseña'})
