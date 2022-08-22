@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+  <h1 class="mb-5 text-capitalize font-weight-bold">lista de tecnicos</h2>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Nombre del tecnico</th>
+          <th scope="col">Cuidad</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Numero de telefono</th>
+          <th scope="col">Email</th>
+          <th scope="col">Horario de servicio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for technician in object_list  %}
+        <tr>
+          <th scope="col">{{technician.id}}</th>
+          <th scope="col">{{technician.DNI}}</th>
+          <th scope="col">{{technician.name}}</th>
+          <th scope="col">{{technician.city}}</th>
+          <th scope="col">{{technician.address}}</th>
+          <th scope="col">{{technician.phone_number}}</th>
+          <th scope="col">{{technician.email}}</th>
+          <th scope="col">{{technician.service_hours}}</th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+{% endblock content %}
